@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import clsx from "clsx";
+
+interface Props extends HTMLAttributes<"button"> {
+  variant?: "fill" | "outline";
+}
+
+const { variant = "fill", ...attr } = Astro.props;
+---
+
+<button
+  class={clsx(
+    "px-8 py-3 font-medium rounded-full flex items-center justify-center backdrop-blur-xl hover:scale-105 transition-all duration-300",
+    attr.class,
+    {
+      "bg-gradient-to-b border-none from-fuchsia-600 to-purple-800":
+        variant === "fill",
+      "bg-black/20 border border-white/10": variant === "outline",
+    },
+  )}
+  {...attr}
+>
+  <slot />
+</button>

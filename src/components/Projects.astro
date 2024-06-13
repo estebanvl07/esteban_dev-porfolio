@@ -1,0 +1,165 @@
+---
+import Title from "./Title.astro";
+import Button from "./Button.astro";
+import clsx from "clsx";
+
+import NextJS from "./icons/NextJS.astro";
+import React from "./icons/React.astro";
+import tRPC from "./icons/tRPC.astro";
+import Tailwind from "./icons/Tailwind.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  REACT: {
+    name: "React JS",
+    class: "bg-[#0074a6] text-white",
+    icon: React,
+  },
+  tRPC: {
+    name: "tRPC",
+    class: "bg-[#3730a3] text-white",
+    icon: tRPC,
+  },
+  PRISMA: {
+    name: "Prisma CLI",
+    class: "bg-[#2d3748] text-white",
+    icon: tRPC,
+  },
+};
+
+const projects = [
+  {
+    imageSrc: "/images/projectsImage/biru.png",
+    articleProps: {
+      title: "Biru",
+      description:
+        "This is an application in development designed for personal finance management. Although it is not currently available, it will soon be open to users, providing them with the ability to manage their income, expenses, and savings easily and effectively.",
+      hasView: true,
+      hrefToWebSite: "https://biru-next.vercel.app/",
+      tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.tRPC, TAGS.PRISMA],
+    },
+  },
+  {
+    imageSrc: "/images/projectsImage/schwimmbecken.png",
+    articleProps: {
+      title: "Schwimmbecken",
+      description:
+        "This app allows you to book nearby swimming pools easily and conveniently, perfect for relaxing and enjoying some time in the water.",
+      hasView: true,
+      hrefToWebSite: "#",
+      tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.tRPC, TAGS.PRISMA],
+    },
+  },
+  {
+    imageSrc: "/images/projectsImage/porfolio.png",
+    articleProps: {
+      title: "Portafolio",
+      description:
+        "This app allows you to book nearby swimming pools easily and conveniently, perfect for relaxing and enjoying some time in the water.",
+      hasView: true,
+      hasViewCode: true,
+      hrefToWebSite: "#",
+      hrefToRepository: "https://github.com/viloriajoel07/portoflio-ela",
+      tags: [TAGS.REACT, TAGS.TAILWIND],
+    },
+  },
+];
+---
+
+<div class="min-h-screen h-full py-10 m-auto max-w-[70rem]">
+  <Title title="Projects" description="Personal projects" />
+  <section class="flex flex-col w-full gap-20 mt-16">
+    {
+      projects.map((project, index) => {
+        const { imageSrc, articleProps } = project;
+        const {
+          title,
+          description,
+          hasView,
+          hasViewCode,
+          hrefToWebSite,
+          hrefToRepository,
+          tags,
+        } = articleProps;
+
+        const impar = index === 0 ? true : index! % 2 === 0;
+
+        return (
+          <article
+            class={clsx(
+              "w-full flex flex-col md:flex-row-reverse gap-8 justify-between items-center px-8",
+              {
+                "md:!flex-row": impar,
+              },
+            )}
+          >
+            <img
+              src={imageSrc}
+              loading="lazy"
+              class={clsx(
+                " max-w-full md:max-w-[30rem] rounded-xl border-4 border-white/10 hover:scale-105 transition-all duration-500",
+              )}
+            />
+            <aside class="w-full flex-1 md:w-1/2 md:max-w-lg">
+              <h2 class="text-3xl underline underline-offset-4 text-fuchsia-200 font-bold">
+                {title}
+              </h2>
+              {tags && (
+                <ul class="flex gap-2 mt-4">
+                  {tags.map((tag: any) => (
+                    <li class="flex items-center">
+                      <span
+                        class={`flex items-center border border-white/20 gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                      >
+                        <tag.icon class="size-4" />
+                        {tag.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p class="text-zinc-300 my-4">{description}</p>
+              <nav class="w-full flex flex-col lg:flex-row gap-3">
+                {hasView && (
+                  <a
+                    href={hrefToWebSite}
+                    target="_blank"
+                    class="w-full md:w-auto"
+                  >
+                    <Button class="!w-full">
+                      <span class="flex gap-2 text-white items-center whitespace-nowrap">
+                        Go to Website <img src="/images/web.svg" />
+                      </span>
+                    </Button>
+                  </a>
+                )}
+                {hasViewCode && (
+                  <a
+                    href={hrefToRepository}
+                    target="_blank"
+                    class="w-full md:w-auto"
+                  >
+                    <Button variant="outline" class="!w-full">
+                      <span class="flex gap-2 whitespace-nowrap">
+                        Check out github <img src="/images/github.svg" />
+                      </span>
+                    </Button>
+                  </a>
+                )}
+              </nav>
+            </aside>
+          </article>
+        );
+      })
+    }
+  </section>
+</div>

@@ -1,0 +1,44 @@
+---
+import Title from "./Title.astro";
+---
+
+<div class="h-full py-10 max-w-[70rem] m-auto px-8">
+  <Title title="About me" />
+  <div
+    class="flex justify-between items-center flex-col-reverse md:flex-row mt-10 gap-8"
+  >
+    <aside class="flex gap-3 flex-col md:max-w-[32rem]">
+      <p>
+        Me llamo Joel Viloria. Mi pasión por la programación comenzó a los 10
+        años, Actualmente, tengo más de <span>2 años de experiencia</span> en el
+        sector y he tenido la oportunidad de formar parte de equipos de desarrollo
+        en empresas y multinacionales.
+      </p>
+      <p>
+        Durante este tiempo, he trabajado en diversos proyectos que me han
+        permitido adquirir habilidades en múltiples áreas del desarrollo de
+        software, desde el <span>diseño</span> y la implementación hasta la <span
+          >prueba</span
+        > y el
+        <span>despliegue</span> de aplicaciones.
+      </p>
+      <p>
+        Algunos de mis logros son haber <span
+          >colaborado con una multinacional</span
+        > y tambien haber <span>desarrollado mi propia aplicación</span>,
+        demostrando mi capacidad para llevar proyectos desde la idea inicial
+        hasta su implementación completa.
+      </p>
+    </aside>
+    <img
+      src="/images/picture.jpeg"
+      class="saturate-0 w-full md:w-[28rem] border border-white/10 rounded-3xl"
+    />
+  </div>
+</div>
+
+<style>
+  span {
+    @apply text-fuchsia-500 italic font-semibold font-mono;
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Title from "./Title.astro";
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCIE = [
+  {
+    date: "Actualmente...",
+    title: "Desarrollador Full-stack",
+    company: "Freelance",
+    description:
+      "Desarrollé una aplicación de gestión financiera usando Next.js, TypeScript y Prisma ORM, enfocándome en funcionalidades avanzadas, optimización del rendimiento y una interfaz de usuario intuitiva para mejorar la experiencia del usuario final.",
+    link: "https://biru-next.vercel.app/",
+  },
+  {
+    date: "Nov 2022 - Ago 2023",
+    title: "Desarrollador Frontend",
+    company: "MovilBox SAS",
+    description:
+      "Desarrollador y colaborador de UX/UI en plataforma, implementando funcionalidades, optimizando rendimiento, realizando pruebas unitarias y creando componentes reutilizables. Colaboré con diseñadores para mejorar la experiencia de usuario y gestioné requerimientos técnicos para cumplir con las necesidades del negocio.",
+  },
+  {
+    date: "Dic 2021 - Abr 2022",
+    title: "Desarrollador Full-stack",
+    company: "Seven Ware SAS",
+    description:
+      "Desarrollo y colaboración en UX/UI para una plataforma de servicios de IPS, gestionando reservas de citas médicas e historiales clínicos, mejorando la experiencia del usuario y optimizando funcionalidades clave.",
+  },
+];
+---
+
+<div class="py-10 max-w-[70rem] m-auto px-8" id="experience">
+  <Title title="Experiencia" />
+  <ol class="relative mt-16">
+    {
+      EXPERIENCIE.map((experiencie) => (
+        <li class="">
+          <ExperienceItem {...experiencie} />
+        </li>
+      ))
+    }
+  </ol>
+</div>

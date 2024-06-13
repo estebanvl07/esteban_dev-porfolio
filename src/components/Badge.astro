@@ -1,0 +1,12 @@
+---
+import clsx from "clsx";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"span"> {}
+
+const props = Astro.props;
+---
+
+<span {...props} class={clsx("", props.class)}>
+  <slot />
+</span>
