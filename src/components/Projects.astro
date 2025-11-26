@@ -42,7 +42,7 @@ const projects = [
     articleProps: {
       title: "Biru",
       description:
-        "This is an application in development designed for personal finance management. Although it is not currently available, it will soon be open to users, providing them with the ability to manage their income, expenses, and savings easily and effectively.",
+        "Esta es una aplicación en desarrollo diseñada para gestión financiera personal. Aunque no está disponible actualmente, pronto estará disponible para los usuarios, proporcionándoles la capacidad de gestionar sus ingresos, gastos y ahorros de manera fácil y eficiente.",
       hasView: true,
       hrefToWebSite: "https://biru-next.vercel.app/",
       tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.tRPC, TAGS.PRISMA],
@@ -53,7 +53,7 @@ const projects = [
     articleProps: {
       title: "Naturalia",
       description:
-        "I developed an online store for natural products using Next.js, focused on fast navigation and an intuitive user experience. I implemented dynamic filters, product management, and an optimized design to improve conversions.",
+        "Desarrollé una tienda en línea de productos naturales utilizando Next.js, enfocándome en una navegación rápida y una experiencia de usuario intuitiva. Implementé filtros dinámicos, gestión de productos y una optimización del diseño para mejorar las conversiones.",
       hasView: true,
       hasViewCode: true,
       hrefToWebSite: "https://naturalia.vercel.app",
@@ -62,23 +62,34 @@ const projects = [
     },
   },
   {
-    imageSrc: "/images/projectsImage/porfolio.png",
+    imageSrc: "/images/projectsImage/bpox.png",
     articleProps: {
-      title: "Portafolio",
+      title: "BPOX",
       description:
-        "This app allows you to book nearby swimming pools easily and conveniently, perfect for relaxing and enjoying some time in the water.",
+        "Plataforma integral para restaurantes diseñada para optimizar la operación diaria y mejorar la experiencia del cliente. Permite gestionar pedidos, mesas, productos y personal desde una interfaz intuitiva y rápida. Incluye herramientas para que los clientes realicen pedidos directamente desde su mesa mediante un código de validación, reduciendo tiempos de espera y aumentando la rotación. El sistema ofrece estadísticas en tiempo real, control de inventario, registro de ventas y monitoreo del desempeño del personal. Ideal para restaurantes medianos, cafeterías y locales de comida rápida que buscan modernizar su flujo de trabajo y aumentar su eficiencia sin necesidad de procesos complejos.",
       hasView: true,
-      hasViewCode: true,
-      hrefToWebSite: "#",
-      hrefToRepository: "https://github.com/estebanvl07/portoflio-ela",
-      tags: [TAGS.REACT, TAGS.TAILWIND],
+      hasViewCode: false,
+      hrefToWebSite: "https://bpox-landing.bpox.site/",
+      tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.NEXT, TAGS.tRPC, TAGS.PRISMA],
+    },
+  },
+  {
+    imageSrc: "/images/projectsImage/turnal.png",
+    articleProps: {
+      title: "Turnal",
+      description:
+        "Aplicación especializada en la gestión de turnos para IPS y centros de atención en salud. Permite organizar agendas, asignar citas y administrar la disponibilidad de profesionales de manera eficiente. Ofrece un panel claro para el personal administrativo y una experiencia fluida para los pacientes, quienes pueden solicitar, reagendar o cancelar turnos de forma sencilla. Incluye notificaciones automáticas, control de asistencia y reportes sobre la demanda de servicios. Optimiza los tiempos de atención, reduce congestiones en recepción y mejora la coordinación interna, adaptándose a las necesidades operativas de cualquier IPS.",
+      hasView: true,
+      hasViewCode: false,
+      hrefToWebSite: "https://turnal.netlify.app/",
+      tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.NEXT, TAGS.tRPC, TAGS.PRISMA],
     },
   },
 ];
 ---
 
 <div class="min-h-screen h-full py-10 m-auto max-w-[70rem]">
-  <Title title="Projects" description="Personal projects" />
+  <Title title="Proyectos" description="Proyectos personales" />
   <section class="flex flex-col w-full gap-20 mt-16">
     {
       projects.map((project, index) => {
@@ -139,7 +150,7 @@ const projects = [
                   >
                     <Button class="!w-full">
                       <span class="flex gap-2 text-white items-center whitespace-nowrap">
-                        Go to Website <img src="/images/web.svg" />
+                        Visitar web <img src="/images/web.svg" />
                       </span>
                     </Button>
                   </a>
@@ -152,7 +163,7 @@ const projects = [
                   >
                     <Button variant="outline" class="!w-full">
                       <span class="flex gap-2 whitespace-nowrap">
-                        Check out github <img src="/images/github.svg" />
+                        github <img src="/images/github.svg" />
                       </span>
                     </Button>
                   </a>
