@@ -1,11 +1,33 @@
 <nav
   class="flex gap-6 text-sm items-center [&>a]:text-white [&>a]:whitespace-nowrap fixed py-2 mx-auto top-4 left-[50%] -translate-x-[50%] px-10 rounded-full md:border border-white/10 bg-white/5 backdrop-blur-xl z-20"
 >
-  <a href="/#home" aria-label="home">Inicio</a>
-  <a href="/#experience" aria-label="experience">Experiencia</a>
-  <a href="/#projects" aria-label="proyects">Proyectos</a>
-  <a href="/#aboutme" aria-label="aboutme">Sobre mi</a>
+  <a href="/#home" aria-label="home" class="hidden md:block">Inicio</a>
+  <a href="/#experience" aria-label="experience" class="hidden md:block">Experiencia</a>
+  <a href="/#projects" aria-label="proyects" class="hidden md:block">Proyectos</a>
+  <a href="/#aboutme" aria-label="aboutme" class="hidden md:block">Sobre mi</a>
+
+  <!-- Botón Burger para mobile -->
+  <button
+    id="burger-menu"
+    class="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center cursor-pointer"
+    aria-label="menu"
+  >
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+  </button>
 </nav>
+
+<!-- Dropdown Menu para mobile -->
+<div
+  id="mobile-menu"
+  class="fixed top-16 left-[50%] -translate-x-[50%] w-[90%] max-w-[400px] bg-black/90 backdrop-blur-xl rounded-2xl border border-white/10 z-30 hidden flex-col gap-4 p-6 md:hidden"
+>
+  <a href="/#home" class="text-white text-center py-2 hover:text-fuchsia-400 transition-colors">Inicio</a>
+  <a href="/#experience" class="text-white text-center py-2 hover:text-fuchsia-400 transition-colors">Experiencia</a>
+  <a href="/#projects" class="text-white text-center py-2 hover:text-fuchsia-400 transition-colors">Proyectos</a>
+  <a href="/#aboutme" class="text-white text-center py-2 hover:text-fuchsia-400 transition-colors">Sobre mi</a>
+</div>
 
 <script>
   document.addEventListener("astro:page-load", () => {
@@ -46,5 +68,25 @@
         });
       }
     };
+
+    // Mobile menu toggle
+    const burgerMenu = document.getElementById("burger-menu");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (burgerMenu && mobileMenu) {
+      burgerMenu.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex");
+      });
+
+      // Cerrar menú al hacer click en un enlace
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+        });
+      });
+    }
   });
 </script>
